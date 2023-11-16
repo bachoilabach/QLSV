@@ -13,9 +13,9 @@
             background-color: #f4f4f4;
         }
 
-        img{
-            height: 50px;
-            width: 50px;
+        img {
+            height: 37px;
+            width: 37px;
             border-radius: 50%;
         }
 
@@ -60,16 +60,18 @@
             margin-right: 20px;
         }
 
-        header ul li a {
+        header ul li a{
             text-decoration: none;
             color: black;
             padding: 20px;
         }
-        header ul li a:hover{
+
+        header ul li a:hover {
             cursor: pointer;
             background-color: #ccc;
             opacity: 0.8;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -88,6 +90,7 @@
             font-size: 20px;
             text-decoration: none;
             color: black;
+            padding: 10px;
         }
 
         input[type="search"] {
@@ -126,20 +129,23 @@
         .Change {
             color: black;
             text-decoration: none;
+            padding: 10px;
         }
 
         .Del {
             color: white;
             text-decoration: none;
+            padding: 10px;
+
         }
 
-        .Change:hover {
+        /* .Change:hover {
             background-color: #6dd5ed;
         }
 
         .Del:hover {
             background-color: #f12711;
-        }
+        } */
     </style>
 </head>
 
@@ -150,7 +156,9 @@
             <li><a href="index.php">Quản lý sinh viên</a></li>
             <li><a href="form_quan_ly_khoa.php">Quản lý khoa</a></li>
             <li><a href="form_quan_ly_lop.php">Quản lý lớp</a></li>
-            <li><a href="#">Quản lý người dùng</a></li>
+            <li><a href="form_quan_ly_nguoi_dung.php">Quản lý người dùng</a></li>
+            <li><a href="Login.php">Đăng xuất</a></li>
+
         </ul>
     </header>
     <h1>DANH SÁCH KHOA</h1>

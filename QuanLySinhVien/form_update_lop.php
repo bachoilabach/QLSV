@@ -45,6 +45,8 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
         }
 
         button:hover {
@@ -99,8 +101,8 @@
 
     <form action="process_update_lop.php" method="post">
         <input type="hidden" name="malop" value="<?php echo $each['malop']; ?>">
-        Mã khoa <input type="text" name="makhoa"><br>
-        Tên lớp <input type="text" name="ten_lop"><br>
+        Mã khoa <input type="text" name="makhoa" required><br>
+        Tên lớp <input type="text" name="ten_lop" required><br>
         <button>Cập nhật</button>
     </form>
     <a href="form_quan_ly_lop.php">Xem tất cả danh sách các lớp</a>

@@ -199,7 +199,7 @@
                     <?php echo $each['que_quan'] ?>
                 </td>
                 <td>
-                    <?php echo $each['anh'] ?>
+                    <img src="<?php echo $each['anh'] ?>" alt="">
                 </td>
             </tr>
         <?php endforeach ?>

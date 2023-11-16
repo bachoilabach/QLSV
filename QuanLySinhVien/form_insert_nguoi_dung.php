@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm Sinh Viên</title>
+    <title>Thêm Người Dùng</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,6 +12,7 @@
             display: grid;
             justify-items: center;
             align-items: center;
+            /* height: 500px; */
             background-color: #f4f4f4;
         }
 
@@ -29,8 +29,7 @@
             text-align: center;
         }
 
-        input[type="text"],
-        input[type="radio"] {
+        input[type="text"] {
             width: calc(100% - 20px);
             margin-bottom: 10px;
             padding: 10px;
@@ -59,7 +58,6 @@
             margin-top: 10px;
             text-decoration: none;
             color: red;
-            padding: 10px;
         }
 
         span {
@@ -74,74 +72,30 @@
         span.success {
             color: green;
         }
-
-        /* Style radio buttons */
-        label {
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        input[type="radio"] {
-            display: none;
-        }
-
-        label.radio-label {
-            background-color: #ddd;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type="radio"]:checked+label.radio-label {
-            background-color: #4caf50;
-            color: white;
-        }
-
-        input[type="date"] {
-            width: 90%;
-            position: relative;
-            height: 35px;
-            outline: none;
-            font-size: 1rem;
-            color: #808080;
-            border: 1px solid #ccc;
-            margin-top: 5px;
-            border-radius: 6px;
-            padding: 0 15px;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
-
 <body>
-    <h1>Thêm sinh viên vào danh sách</h1>
+    <h1>Thêm sinh người dùng vào danh sách</h1>
 
-    <?php if (isset($_GET['loi'])) { ?>
+    <?php if(isset($_GET['loi'])) { ?>
         <span class="error">
             <?php echo $_GET['loi']; ?>
         </span>
     <?php } ?>
 
-    <?php if (isset($_GET['success'])) { ?>
+    <?php if(isset($_GET['success'])) { ?>
         <span class="success">
             <?php echo $_GET['success']; ?>
         </span>
     <?php } ?>
 
-    <form action="process_insert_SinhVien.php" method="post" enctype="multipart/form-data">
-        Họ và tên <input type="text" name="ho_ten" required><br>
-        Ngày sinh <input type="date" name="ngay_sinh" required><br>
-        Giới tính:
-        <input type="radio" id="nam" name="gioi_tinh" value="Nam" required>
-        <label for="nam" class="radio-label">Nam</label>
-        <input type="radio" id="nu" name="gioi_tinh" value="Nữ" required>
-        <label for="nu" class="radio-label">Nữ</label><br>
-        Quê quán <input type="text" name="que_quan" required><br>
-        Ảnh <input type="text" name="anh" required><br>
+    <form action="process_insert_nguoi_dung.php" method="post">
+        Họ và tên <input type="text" name="fullname" required><br>
+        Tài khoản <input type="text" name="username" required><br>
+        Mật khẩu <input type="text" name="password" required><br>
         <button type="submit">Thêm</button>
     </form>
 
-    <a href="index.php" class="">Xem danh sách tất cả sinh viên</a>
+    <a href="form_quan_ly_nguoi_dung.php" class="">Xem danh sách tất cả người dùng</a>
 </body>
-
 </html>

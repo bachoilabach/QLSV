@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm Sinh Viên</title>
+    <title>Cập nhật sinh viên</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,26 +74,38 @@
         }
     </style>
 </head>
-<body>
-    <h1>Thêm khoa vào danh sách</h1>
 
-    <?php if(isset($_GET['loi'])) { ?>
-        <span class="error">
+<body>
+    <h1>Cập nhật người dùng</h1>
+    <?php
+    $id = $_GET['id'];
+    $connect = mysqli_connect('localhost', 'root', '', 'QLSV');
+    mysqli_set_charset($connect, 'utf8');
+    $sql = "select * from tbuser where id = $id";
+    $ket_qua = mysqli_query($connect, $sql);
+    $each = mysqli_fetch_array($ket_qua);
+    ?>
+
+    <?php
+    if (isset($_GET['loi'])) {
+    ?>
+        <span style="color:red">
             <?php echo $_GET['loi']; ?>
         </span>
-    <?php } ?>
+    <?php
+    }
+    ?>
 
-    <?php if(isset($_GET['success'])) { ?>
-        <span class="success">
-            <?php echo $_GET['success']; ?>
-        </span>
-    <?php } ?>
 
-    <form action="process_insert_khoa.php" method="post">
-        Tên khoa <input type="text" name="ten_khoa" required><br>
-        <button type="submit">Thêm</button>
+    <form action="process_update_nguoi_dung.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $each['id']; ?>">
+        <br>
+        Họ và tên <input type="text" name="fullname" required><br>
+        Tài khoản <input type="text" name="username" required><br>
+        Mật khẩu <input type="text" name="password" required><br>
+        <button>Cập nhật</button>
     </form>
-
-    <a href="form_quan_ly_khoa.php" class="">Xem danh sách khoa</a>
+    <a href="form_quan_ly_nguoi_dung.php">Xem tất cả danh sách người dùng</a>
 </body>
+
 </html>

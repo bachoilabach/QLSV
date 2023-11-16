@@ -7,7 +7,7 @@ $password_db = "";
 $connect = mysqli_connect($servername, $username_db, $password_db, $database);
 if (!$connect) {
     die("Không có kết nối: " . mysqli_connect_error());
-    exit();
+    // exit();
 }
 
 $message = "";
@@ -58,11 +58,12 @@ mysqli_close($connect);
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
-            text-align: center;
+            /* text-align: center; */
         }
 
         h2 {
             color: #333;
+            text-align: center;
         }
 
         label {

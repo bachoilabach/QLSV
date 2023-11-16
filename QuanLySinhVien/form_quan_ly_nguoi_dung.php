@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý sinh viên</title>
+    <title>Quản lý người dùng</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,7 +60,7 @@
             margin-right: 20px;
         }
 
-        header ul li a {
+        header ul li a{
             text-decoration: none;
             color: black;
             padding: 20px;
@@ -158,25 +158,26 @@
             <li><a href="form_quan_ly_lop.php">Quản lý lớp</a></li>
             <li><a href="form_quan_ly_nguoi_dung.php">Quản lý người dùng</a></li>
             <li><a href="Login.php">Đăng xuất</a></li>
+
         </ul>
     </header>
-    <h1>DANH SÁCH SINH VIÊN</h1>
+    <h1>DANH SÁCH LỚP</h1>
     <!-- Ket noi database -->
     <?php
     $connect = mysqli_connect('localhost', 'root', '', 'qlsv');
     mysqli_set_charset($connect, 'utf8');
 
-    $sql = "select * from tblsinhvien";
+    $sql = "select * from tbuser";
     $ket_qua = mysqli_query($connect, $sql);
     ?>
     <div class="header">
         <div class="add">
-            <a href="form_insert_SinhVien.php" class="addTitle">
-                Thêm sinh viên
+            <a href="form_insert_nguoi_dung.php" class="addTitle">
+                Thêm người dùng
             </a>
         </div>
 
-        <form action="process_search_SinhVien.php" method="get">
+        <form action="process_search_nguoidung.php" method="get">
             <input type="search" name="tim_kiem">
             <input type="submit" value="Tìm kiếm">
         </form>
@@ -214,41 +215,33 @@
     <!--  -->
     <table>
         <tr>
-            <th>Mã sinh viên</th>
-            <th>Họ tên</th>
-            <th>Ngày sinh</th>
-            <th>Giới tính</th>
-            <th>Quê quán</th>
-            <th>Ảnh</th>
+            <th>ID</th>
+            <th>Họ và tên</th>
+            <th>Tài khoản</th>
+            <th>Mật khẩu</th>
             <th>Thao tác</th>
         </tr>
 
         <?php foreach ($ket_qua as $each) : ?>
             <tr>
                 <td>
-                    <span><?php echo $each['masv'] ?></span>
+                    <span><?php echo $each['id'] ?></span>
                 </td>
                 <td>
-                    <?php echo $each['ho_ten'] ?>
+                    <?php echo $each['fullname'] ?>
                 </td>
                 <td>
-                    <?php echo date('d/m/Y', strtotime($each['ngay_sinh'])); ?>
+                    <?php echo $each['username'] ?>
                 </td>
                 <td>
-                    <?php echo $each['gioi_tinh'] ?>
-                </td>
-                <td>
-                    <?php echo $each['que_quan'] ?>
-                </td>
-                <td>
-                    <img src="<?php echo $each['anh'] ?>" alt="">
+                    <?php echo $each['password']?>
                 </td>
                 <td class="functional">
                     <div style="background-color: #6dd5ed;">
-                        <a class="Change" href="form_update_SinhVien.php?masv=<?php echo $each['masv'] ?>">Sửa</a>
+                        <a class="Change" href="form_update_nguoi_dung.php?id=<?php echo $each['id'] ?>">Sửa</a>
                     </div>
                     <div style="background-color: #f12711;">
-                        <a class="Del" href="process_delete_SinhVien.php?masv=<?php echo $each['masv'] ?>">Xoá</a>
+                        <a class="Del" href="process_delete_nguoi_dung.php?id=<?php echo $each['id'] ?>">Xoá</a>
                     </div>
                 </td>
             </tr>

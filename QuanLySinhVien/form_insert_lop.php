@@ -44,6 +44,8 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
         }
 
         button:hover {
@@ -89,8 +91,8 @@
     <?php } ?>
 
     <form action="process_insert_lop.php" method="post">
-        Mã khoa <input type="text" name="makhoa"><br>
-        Tên lớp <input type="text" name="ten_lop"><br>
+        Mã khoa <input type="text" name="makhoa" required><br>
+        Tên lớp <input type="text" name="ten_lop" required<br>
         <button type="submit">Thêm</button>
     </form>
 
