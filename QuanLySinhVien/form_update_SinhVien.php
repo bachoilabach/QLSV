@@ -134,18 +134,17 @@
     }
     ?>
 
-
     <form action="process_update_SinhVien.php" method="post">
         <input type="hidden" name="masv" value="<?php echo $each['masv']; ?>">
-        Họ và tên <input type="text" name="ho_ten" required><br>
-        Ngày sinh <input type="date" name="ngay_sinh" required><br>
+        Họ và tên <input type="text" name="ho_ten" value="<?php echo $each['ho_ten']; ?>" required><br>
+        Ngày sinh <input type="date" name="ngay_sinh" value="<?php echo date('Y-m-d', strtotime($each['ngay_sinh'])); ?>" required><br>
         Giới tính:
-        <input type="radio" id="nam" name="gioi_tinh" value="Nam" required>
+        <input type="radio" id="nam" name="gioi_tinh" value="Nam" <?php if ($each['gioi_tinh'] == 'Nam') echo 'checked'; ?> required>
         <label for="nam" class="radio-label">Nam</label>
-        <input type="radio" id="nu" name="gioi_tinh" value="Nữ" required>
+        <input type="radio" id="nu" name="gioi_tinh" value="Nữ" <?php if ($each['gioi_tinh'] == 'Nữ') echo 'checked'; ?> required>
         <label for="nu" class="radio-label">Nữ</label><br>
-        Quê quán <input type="text" name="que_quan" required><br>
-        Ảnh <input type="text" name="anh" required><br>
+        Quê quán <input type="text" name="que_quan" value="<?php echo $each['que_quan']; ?>" required><br>
+        Ảnh <input type="text" name="anh" value="<?php echo $each['anh']; ?>" required><br>
         <button>Cập nhật</button>
     </form>
     <a href="index.php">Xem tất cả danh sách sinh viên</a>

@@ -100,9 +100,9 @@
     <form action="process_update_nguoi_dung.php" method="post">
         <input type="hidden" name="id" value="<?php echo $each['id']; ?>">
         <br>
-        Họ và tên <input type="text" name="fullname" required><br>
-        Tài khoản <input type="text" name="username" required><br>
-        Mật khẩu <input type="text" name="password" required><br>
+        Họ và tên <input type="text" name="fullname" value="<?php echo $each['fullname']; ?>" required><br>
+        Tài khoản <input type="text" name="username" value="<?php echo $each['username']; ?>" required><br>
+        Mật khẩu <input type="text" name="password" value="<?php echo $each['password']; ?>" required><br>
         <button>Cập nhật</button>
     </form>
     <a href="form_quan_ly_nguoi_dung.php">Xem tất cả danh sách người dùng</a>

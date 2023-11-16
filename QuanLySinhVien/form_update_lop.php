@@ -101,8 +101,8 @@
 
     <form action="process_update_lop.php" method="post">
         <input type="hidden" name="malop" value="<?php echo $each['malop']; ?>">
-        Mã khoa <input type="text" name="makhoa" required><br>
-        Tên lớp <input type="text" name="ten_lop" required><br>
+        Mã khoa <input type="text" name="makhoa" value="<?php echo $each['makhoa']; ?>" required><br>
+        Tên lớp <input type="text" name="ten_lop" value="<?php echo $each['ten_lop']; ?>" required><br>
         <button>Cập nhật</button>
     </form>
     <a href="form_quan_ly_lop.php">Xem tất cả danh sách các lớp</a>
