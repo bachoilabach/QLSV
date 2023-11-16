@@ -13,9 +13,9 @@
             background-color: #f4f4f4;
         }
 
-        img{
-            height: 50px;
-            width: 50px;
+        img {
+            height: 37px;
+            width: 37px;
             border-radius: 50%;
         }
 
@@ -65,11 +65,13 @@
             color: black;
             padding: 20px;
         }
-        header ul li a:hover{
+
+        header ul li a:hover {
             cursor: pointer;
             background-color: #ccc;
             opacity: 0.8;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -145,7 +147,7 @@
 
 <body>
     <header>
-        <img src="https://cdn3.vectorstock.com/i/1000x1000/06/62/management-business-logo-template-concept-vector-31080662.jpgs" />
+        <img src="`https://cdn3.vectorstock.com/i/1000x1000/06/62/management-business-logo-template-concept-vector-31080662.jpgs`" />
         <ul>
             <li><a href="index.php">Quản lý sinh viên</a></li>
             <li><a href="form_quan_ly_khoa.php">Quản lý khoa</a></li>
@@ -233,8 +235,8 @@
                 <td>
                     <?php echo $each['que_quan'] ?>
                 </td>
-                <td>
-                    <?php echo $each['anh'] ?>
+                <td> 
+                    <img src="<?php echo $each['anh'] ?>" alt="">
                 </td>
                 <td class="functional">
                     <div style="background-color: #6dd5ed;">
