@@ -101,7 +101,7 @@
 
     <form action="process_update_khoa.php" method="post">
     <input type="hidden" name="makhoa" value="<?php echo $each['makhoa']; ?>">
-        Tên khoa <input type="text" name="ten_khoa" value="<?php echo $each['ten_khoa']; ?>" required><br>
+        Tên khoa <input type="text" name="ten_khoa" value="<?php echo $each['tenkhoa']; ?>" required><br>
         <button>Cập nhật</button>
     </form>
     <a href="form_quan_ly_khoa.php">Xem tất cả danh sách sinh viên</a>

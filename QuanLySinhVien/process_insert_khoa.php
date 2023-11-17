@@ -10,7 +10,7 @@ $ten_khoa = $_POST['ten_khoa'];
 $connect = mysqli_connect('localhost', 'root', '', 'QLSV');
 mysqli_set_charset($connect, 'utf8');
 
-$sql = "insert into tblkhoa(makhoa,ten_khoa)
+$sql = "insert into tblkhoa(makhoa,tenkhoa)
 value
 ('$makhoa','$ten_khoa')";
 
