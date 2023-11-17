@@ -12,7 +12,7 @@ if (!$connect) {
     die('Kết nối đến cơ sở dữ liệu thất bại: ' . mysqli_connect_error());
 }
 
-$sql = "UPDATE `tbuser` 
+$sql = "UPDATE `tbluser` 
 set 
 fullname = '$fullname', 
 username = '$username', 

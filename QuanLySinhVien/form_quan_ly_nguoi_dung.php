@@ -167,7 +167,7 @@
     $connect = mysqli_connect('localhost', 'root', '', 'qlsv');
     mysqli_set_charset($connect, 'utf8');
 
-    $sql = "select * from tbuser";
+    $sql = "select * from tbluser";
     $ket_qua = mysqli_query($connect, $sql);
     ?>
     <div class="header">

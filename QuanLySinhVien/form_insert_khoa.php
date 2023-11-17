@@ -89,7 +89,7 @@
     <?php } ?>
 
     <form action="process_insert_khoa.php" method="post">
-        Tên khoa <input type="text" name="ten_khoa" required><br>
+        Tên khoa <input type="text" name="tenkhoa" required><br>
         <button type="submit">Thêm</button>
     </form>
 

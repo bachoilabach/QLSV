@@ -1,7 +1,7 @@
 <?php
 
 $makhoa = $_POST['makhoa'];
-$ten_khoa = $_POST['ten_khoa'];
+$tenkhoa = $_POST['tenkhoa'];
 
 
 $connect = mysqli_connect('localhost','root','','QLSV');
@@ -13,7 +13,7 @@ if (!$connect) {
 
 $sql = "UPDATE `tblkhoa` 
 set 
-ten_khoa = '$ten_khoa'
+tenkhoa = '$tenkhoa'
 where makhoa = '$makhoa'";
 
 mysqli_query($connect, $sql);

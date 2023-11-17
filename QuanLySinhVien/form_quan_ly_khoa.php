@@ -226,7 +226,7 @@
                     <span><?php echo $each['makhoa'] ?></span>
                 </td>
                 <td>
-                    <?php echo $each['ten_khoa'] ?>
+                    <?php echo $each['tenkhoa'] ?>
                 </td>
                 <td class="functional">
                     <div style="background-color: #6dd5ed;">

@@ -168,7 +168,7 @@
     $keyword = $_GET['tim_kiem'];
 
     // Truy vấn tìm kiếm
-    $sql = "SELECT * FROM tblkhoa WHERE ten_khoa LIKE '%$keyword%' OR makhoa LIKE '%$keyword%'";
+    $sql = "SELECT * FROM tblkhoa WHERE tenkhoa LIKE '%$keyword%' OR makhoa LIKE '%$keyword%'";
     $ket_qua = mysqli_query($connect, $sql);
     ?>
 
@@ -184,7 +184,7 @@
                     <span><?php echo $each['makhoa'] ?></span>
                 </td>
                 <td>
-                    <?php echo $each['ten_khoa'] ?>
+                    <?php echo $each['tenkhoa'] ?>
                 </td>
             </tr>
         <?php endforeach ?>

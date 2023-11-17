@@ -168,7 +168,7 @@
     $keyword = $_GET['tim_kiem'];
 
     // Truy vấn tìm kiếm
-    $sql = "SELECT * FROM tbuser WHERE id LIKE '%$keyword%' OR fullname LIKE '%$keyword%' OR username LIKE '%$keyword%'";
+    $sql = "SELECT * FROM tbluser WHERE id LIKE '%$keyword%' OR fullname LIKE '%$keyword%' OR username LIKE '%$keyword%'";
     $ket_qua = mysqli_query($connect, $sql);
     ?>
 

@@ -9,7 +9,7 @@ $password = $_POST['password'];
 $connect = mysqli_connect('localhost', 'root', '', 'QLSV');
 mysqli_set_charset($connect, 'utf8');
 
-$sql = "insert into tbuser(id,fullname,username,password)
+$sql = "insert into tbluser(id,fullname,username,password)
 value
 ('$id','$fullname','$username','$password')";
 
