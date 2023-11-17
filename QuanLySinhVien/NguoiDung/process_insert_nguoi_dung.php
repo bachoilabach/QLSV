@@ -16,4 +16,4 @@ value
 mysqli_query($connect, $sql);
 mysqli_error($connect);
 
-header('location:form_quan_ly_nguoi_dung.php?insert=Thêm người dùng mới thành công');
+header('location:./form_quan_ly_nguoi_dung.php?insert=Thêm người dùng mới thành công');

@@ -1,11 +1,5 @@
 <?php
 
-if (empty($_POST['masv']) || empty($_POST['ho_ten']) || empty($_POST['ngay_sinh']) || empty($_POST['que_quan']) 
-    || empty($_POST['gioi_tinh'])) {
-    header('location:form_insert.php?loi=Yêu cầu nhập đầy đủ thông tin');
-}
-
-
 $masv = $_POST['masv'];
 $ho_ten = $_POST['ho_ten'];
 $ngay_sinh = $_POST['ngay_sinh'];
@@ -23,4 +17,4 @@ value
 mysqli_query($connect, $sql);
 mysqli_error($connect);
 
-header('location:index.php?insert=Thêm sinh viên thành công');
+header('location:../index.php?insert=Thêm sinh viên thành công');

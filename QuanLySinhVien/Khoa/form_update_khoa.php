@@ -13,7 +13,7 @@
             display: grid;
             justify-items: center;
             align-items: center;
-            height: 500px;
+            /* height: 500px; */
             background-color: #f4f4f4;
         }
 
@@ -23,6 +23,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            font-size: 20px;
         }
 
         h1 {
@@ -55,14 +56,15 @@
         a {
             display: block;
             text-align: center;
-            margin-top: 10px;
+            margin-top: 20px;
             text-decoration: none;
             color: red;
+            padding: 10px;
         }
 
         span {
             display: block;
-            margin-top: 10px;
+            margin-top: 50px;
         }
 
         span.error {
@@ -76,12 +78,12 @@
 </head>
 
 <body>
-    <h1>Cập nhật người dùng</h1>
+    <h1>Cập nhật thông tin khoa</h1>
     <?php
-    $id = $_GET['id'];
+    $makhoa = $_GET['makhoa'];
     $connect = mysqli_connect('localhost', 'root', '', 'QLSV');
     mysqli_set_charset($connect, 'utf8');
-    $sql = "select * from tbuser where id = $id";
+    $sql = "select * from tblkhoa where makhoa = $makhoa";
     $ket_qua = mysqli_query($connect, $sql);
     $each = mysqli_fetch_array($ket_qua);
     ?>
@@ -97,15 +99,12 @@
     ?>
 
 
-    <form action="process_update_nguoi_dung.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $each['id']; ?>">
-        <br>
-        Họ và tên <input type="text" name="fullname" value="<?php echo $each['fullname']; ?>" required><br>
-        Tài khoản <input type="text" name="username" value="<?php echo $each['username']; ?>" required><br>
-        Mật khẩu <input type="text" name="password" value="<?php echo $each['password']; ?>" required><br>
+    <form action="./process_update_khoa.php" method="post">
+    <input type="hidden" name="makhoa" value="<?php echo $each['makhoa']; ?>">
+        Tên khoa <input type="text" name="tenkhoa" value="<?php echo $each['tenkhoa']; ?>" required><br>
         <button>Cập nhật</button>
     </form>
-    <a href="form_quan_ly_nguoi_dung.php">Xem tất cả danh sách người dùng</a>
+    <a href="./form_quan_ly_khoa.php">Xem tất cả danh sách sinh viên</a>
 </body>
 
 </html>

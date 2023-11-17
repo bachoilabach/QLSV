@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm Sinh Viên</title>
+    <title>Thêm Người Dùng</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
             display: grid;
             justify-items: center;
             align-items: center;
-            height: 500px;
+            /* height: 500px; */
             background-color: #f4f4f4;
         }
 
@@ -22,6 +22,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            font-size: 20px;
         }
 
         h1 {
@@ -74,7 +75,7 @@
     </style>
 </head>
 <body>
-    <h1>Thêm khoa vào danh sách</h1>
+    <h1>Thêm sinh người dùng vào danh sách</h1>
 
     <?php if(isset($_GET['loi'])) { ?>
         <span class="error">
@@ -88,11 +89,13 @@
         </span>
     <?php } ?>
 
-    <form action="process_insert_khoa.php" method="post">
-        Tên khoa <input type="text" name="tenkhoa" required><br>
+    <form action="./process_insert_nguoi_dung.php" method="post">
+        Họ và tên <input type="text" name="fullname" required><br>
+        Tài khoản <input type="text" name="username" required><br>
+        Mật khẩu <input type="text" name="password" required><br>
         <button type="submit">Thêm</button>
     </form>
 
-    <a href="form_quan_ly_khoa.php" class="">Xem danh sách khoa</a>
+    <a href="./form_quan_ly_nguoi_dung.php" class="">Xem danh sách tất cả người dùng</a>
 </body>
 </html>

@@ -21,4 +21,4 @@ where malop = '$malop'";
 mysqli_query($connect, $sql);
 
 
-header('location:form_quan_ly_lop.php?update=Cập nhật thông tin lớp thành công');
+header('location:./form_quan_ly_lop.php?update=Cập nhật thông tin lớp thành công');

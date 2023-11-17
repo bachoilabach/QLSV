@@ -7,4 +7,4 @@ $sql = "delete from tbluser where id = '$id'";
 
 mysqli_query($connect, $sql);
 
-header('Location: form_quan_ly_nguoi_dung.php?delete=Xoá thành công');
+header('Location: ./form_quan_ly_nguoi_dung.php?delete=Xoá thành công');

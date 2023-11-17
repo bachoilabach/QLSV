@@ -22,4 +22,4 @@ where id = '$id'";
 mysqli_query($connect, $sql);
 
 
-header('location:form_quan_ly_nguoi_dung.php?update=Cập nhật thông tin người dùng thành công');
+header('location:./form_quan_ly_nguoi_dung.php?update=Cập nhật thông tin người dùng thành công');

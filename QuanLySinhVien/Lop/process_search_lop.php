@@ -157,7 +157,7 @@
 </head>
 
 <body>
-    <h1>KẾT QUẢ TÌM KIẾM SINH VIÊN</h1>
+    <h1>KẾT QUẢ TÌM KIẾM LỚP</h1>
 
     <?php
     // Kết nối đến cơ sở dữ liệu
@@ -168,37 +168,33 @@
     $keyword = $_GET['tim_kiem'];
 
     // Truy vấn tìm kiếm
-    $sql = "SELECT * FROM tbluser WHERE id LIKE '%$keyword%' OR fullname LIKE '%$keyword%' OR username LIKE '%$keyword%'";
+    $sql = "SELECT * FROM tbllop WHERE makhoa LIKE '%$keyword%' OR malop LIKE '%$keyword%' OR ten_lop LIKE '%$keyword%'";
     $ket_qua = mysqli_query($connect, $sql);
     ?>
 
     <table>
         <tr>
-            <th>ID</th>
-            <th>Họ và tên</th>
-            <th>Tài khoản</th>
-            <th>Mật khẩu</th>
+            <th>Mã khoa</th>
+            <th>Mã lớp</th>
+            <th>Tên lớp</th>
         </tr>
 
         <?php foreach ($ket_qua as $each) : ?>
             <tr>
-            <td>
-                    <span><?php echo $each['id'] ?></span>
+                <td>
+                    <span><?php echo $each['makhoa'] ?></span>
                 </td>
                 <td>
-                    <?php echo $each['fullname'] ?>
+                    <?php echo $each['malop'] ?>
                 </td>
                 <td>
-                    <?php echo $each['username'] ?>
-                </td>
-                <td>
-                    <?php echo $each['password']?>
+                    <?php echo $each['ten_lop'] ?>
                 </td>
             </tr>
         <?php endforeach ?>
 
     </table>
-    <a href="form_quan_ly_nguoi_dung.php" class="">Xem danh sách tất cả sinh viên</a>
+    <a href="./form_quan_ly_lop.php" class="">Xem danh sách tất cả các lớp</a>
 </body>
 
 </html>

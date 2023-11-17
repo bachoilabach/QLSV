@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý sinh viên</title>
+    <title>Kết quả tìm kiếm</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,8 +14,8 @@
         }
 
         img {
-            height: 37px;
-            width: 37px;
+            height: 50px;
+            width: 50px;
             border-radius: 50%;
         }
 
@@ -58,18 +58,20 @@
             list-style: none;
             font-size: 20px;
             margin-right: 20px;
-        }
-
-        header ul li a{
-            text-decoration: none;
-            color: black;
             padding: 20px;
         }
 
-        header ul li a:hover {
+        header ul li:hover {
             cursor: pointer;
+            color: aqua;
             background-color: #ccc;
             opacity: 0.8;
+
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: black;
         }
 
         .header {
@@ -90,7 +92,6 @@
             font-size: 20px;
             text-decoration: none;
             color: black;
-            padding: 10px;
         }
 
         input[type="search"] {
@@ -129,117 +130,75 @@
         .Change {
             color: black;
             text-decoration: none;
-            padding: 10px;
         }
 
         .Del {
             color: white;
             text-decoration: none;
-            padding: 10px;
-
         }
 
-        /* .Change:hover {
+        .Change:hover {
             background-color: #6dd5ed;
         }
 
         .Del:hover {
             background-color: #f12711;
-        } */
+        }
+
+        a {
+            display: block;
+            /* text-align: center; */
+            margin-top: 10px;
+            text-decoration: none;
+            color: red;
+            margin-left: 5%;
+        }
     </style>
 </head>
 
 <body>
-    <header>
-        <img src="https://cdn3.vectorstock.com/i/1000x1000/06/62/management-business-logo-template-concept-vector-31080662.jpgs" />
-        <ul>
-            <li><a href="index.php">Quản lý sinh viên</a></li>
-            <li><a href="form_quan_ly_khoa.php">Quản lý khoa</a></li>
-            <li><a href="form_quan_ly_lop.php">Quản lý lớp</a></li>
-            <li><a href="form_quan_ly_nguoi_dung.php">Quản lý người dùng</a></li>
-            <li><a href="Login.php">Đăng xuất</a></li>
+    <h1>KẾT QUẢ TÌM KIẾM SINH VIÊN</h1>
 
-        </ul>
-    </header>
-    <h1>DANH SÁCH KHOA</h1>
-    <!-- Ket noi database -->
     <?php
-    $connect = mysqli_connect('localhost', 'root', '', 'qlsv');
+    // Kết nối đến cơ sở dữ liệu
+    $connect = mysqli_connect('localhost', 'root', '', 'QLSV');
     mysqli_set_charset($connect, 'utf8');
 
-    $sql = "select * from tblkhoa";
+    // Lấy từ khóa tìm kiếm từ biến GET
+    $keyword = $_GET['tim_kiem'];
+
+    // Truy vấn tìm kiếm
+    $sql = "SELECT * FROM tbluser WHERE id LIKE '%$keyword%' OR fullname LIKE '%$keyword%' OR username LIKE '%$keyword%'";
     $ket_qua = mysqli_query($connect, $sql);
     ?>
-    <div class="header">
-        <div class="add">
-            <a href="form_insert_khoa.php" class="addTitle">
-                Thêm khoa
-            </a>
-        </div>
 
-        <form action="process_search_khoa.php" method="get">
-            <input type="search" name="tim_kiem">
-            <input type="submit" value="Tìm kiếm">
-        </form>
-    </div>
-    <br>
-    <?php
-    if (isset($_GET['insert'])) {
-    ?>
-        <span style="color:green;font-size: 20px;margin-left: 30px;">
-            <?php echo $_GET['insert']; ?>
-        </span>
-    <?php
-    }
-    ?>
-
-    <?php
-    if (isset($_GET['update'])) {
-    ?>
-        <span style="color:green;font-size: 20px;margin-left: 30px;">
-            <?php echo $_GET['update']; ?>
-        </span>
-    <?php
-    }
-    ?>
-
-    <?php
-    if (isset($_GET['delete'])) {
-    ?>
-        <span style="color:green;font-size: 20px;margin-left: 30px;">
-            <?php echo $_GET['delete']; ?>
-        </span>
-    <?php
-    }
-    ?>
-    <!--  -->
     <table>
         <tr>
-            <th>Mã khoa</th>
-            <th>Tên khoa</th>
-            <th>Thao tác</th>
+            <th>ID</th>
+            <th>Họ và tên</th>
+            <th>Tài khoản</th>
+            <th>Mật khẩu</th>
         </tr>
 
         <?php foreach ($ket_qua as $each) : ?>
             <tr>
-                <td>
-                    <span><?php echo $each['makhoa'] ?></span>
+            <td>
+                    <span><?php echo $each['id'] ?></span>
                 </td>
                 <td>
-                    <?php echo $each['tenkhoa'] ?>
+                    <?php echo $each['fullname'] ?>
                 </td>
-                <td class="functional">
-                    <div style="background-color: #6dd5ed;">
-                    <a class="Change" href="form_update_khoa.php?makhoa=<?php echo $each['makhoa'] ?>" style=color:black>Sửa</a>
-                    </div>
-                    <div style="background-color: #f12711;">
-                        <a class="Del" href="process_delete_khoa.php?makhoa=<?php echo $each['makhoa'] ?>" style=color:#fff>Xoá</a>
-                    </div>
+                <td>
+                    <?php echo $each['username'] ?>
+                </td>
+                <td>
+                    <?php echo $each['password']?>
                 </td>
             </tr>
         <?php endforeach ?>
 
     </table>
+    <a href="./form_quan_ly_nguoi_dung.php" class="">Xem danh sách tất cả sinh viên</a>
 </body>
 
 </html>

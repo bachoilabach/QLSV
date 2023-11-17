@@ -7,4 +7,4 @@ $sql = "delete from tblsinhvien where masv = '$id'";
 
 mysqli_query($connect, $sql);
 
-header('Location: index.php?delete=Xoá thành công');
+header('Location:../index.php?delete=Xoá thành công');

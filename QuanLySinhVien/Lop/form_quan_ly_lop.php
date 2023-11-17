@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý người dùng</title>
+    <title>Quản lý lớp</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,7 +60,7 @@
             margin-right: 20px;
         }
 
-        header ul li a{
+        header ul li a {
             text-decoration: none;
             color: black;
             padding: 20px;
@@ -153,31 +153,31 @@
     <header>
         <img src="https://cdn3.vectorstock.com/i/1000x1000/06/62/management-business-logo-template-concept-vector-31080662.jpgs" />
         <ul>
-            <li><a href="index.php">Quản lý sinh viên</a></li>
-            <li><a href="form_quan_ly_khoa.php">Quản lý khoa</a></li>
+            <li><a href="../index.php">Quản lý sinh viên</a></li>
+            <li><a href="../Khoa/form_quan_ly_khoa.php">Quản lý khoa</a></li>
             <li><a href="form_quan_ly_lop.php">Quản lý lớp</a></li>
-            <li><a href="form_quan_ly_nguoi_dung.php">Quản lý người dùng</a></li>
-            <li><a href="Login.php">Đăng xuất</a></li>
+            <li><a href="../NguoiDung/form_quan_ly_nguoi_dung.php">Quản lý người dùng</a></li>
+            <li><a href="../Login.php">Đăng xuất</a></li>
 
         </ul>
     </header>
-    <h1>DANH NGƯỜI DÙNG</h1>
+    <h1>DANH SÁCH LỚP</h1>
     <!-- Ket noi database -->
     <?php
     $connect = mysqli_connect('localhost', 'root', '', 'qlsv');
     mysqli_set_charset($connect, 'utf8');
 
-    $sql = "select * from tbluser";
+    $sql = "select * from tbllop";
     $ket_qua = mysqli_query($connect, $sql);
     ?>
     <div class="header">
         <div class="add">
-            <a href="form_insert_nguoi_dung.php" class="addTitle">
-                Thêm người dùng
+            <a href="./form_insert_lop.php" class="addTitle">
+                Thêm lớp
             </a>
         </div>
 
-        <form action="process_search_nguoi_dung.php" method="get">
+        <form action="./process_search_lop.php" method="get">
             <input type="search" name="tim_kiem">
             <input type="submit" value="Tìm kiếm">
         </form>
@@ -215,33 +215,29 @@
     <!--  -->
     <table>
         <tr>
-            <th>ID</th>
-            <th>Họ và tên</th>
-            <th>Tài khoản</th>
-            <th>Mật khẩu</th>
+            <th>Mã khoa</th>
+            <th>Mã lớp</th>
+            <th>Tên lớp</th>
             <th>Thao tác</th>
         </tr>
 
         <?php foreach ($ket_qua as $each) : ?>
             <tr>
                 <td>
-                    <span><?php echo $each['id'] ?></span>
+                    <span><?php echo $each['makhoa'] ?></span>
                 </td>
                 <td>
-                    <?php echo $each['fullname'] ?>
+                    <?php echo $each['malop'] ?>
                 </td>
                 <td>
-                    <?php echo $each['username'] ?>
-                </td>
-                <td>
-                    <?php echo $each['password']?>
+                    <?php echo $each['ten_lop'] ?>
                 </td>
                 <td class="functional">
                     <div style="background-color: #6dd5ed;">
-                        <a class="Change" href="form_update_nguoi_dung.php?id=<?php echo $each['id'] ?>">Sửa</a>
+                        <a class="Change" href="./form_update_lop.php?malop=<?php echo $each['malop'] ?>" style=color:black>Sửa</a>
                     </div>
                     <div style="background-color: #f12711;">
-                        <a class="Del" href="process_delete_nguoi_dung.php?id=<?php echo $each['id'] ?>">Xoá</a>
+                        <a class="Del" href="./process_delete_lop.php?malop=<?php echo $each['malop'] ?>" style=color:#fff>Xoá</a>
                     </div>
                 </td>
             </tr>

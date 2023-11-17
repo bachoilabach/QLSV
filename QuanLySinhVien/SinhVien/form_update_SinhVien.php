@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm Sinh Viên</title>
+    <title>Cập nhật sinh viên</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -114,34 +114,40 @@
 </head>
 
 <body>
-    <h1>Thêm sinh viên vào danh sách</h1>
+    <h1>Cập nhật sinh viên</h1>
+    <?php
+    $masv = $_GET['masv'];
+    $connect = mysqli_connect('localhost', 'root', '', 'QLSV');
+    mysqli_set_charset($connect, 'utf8');
+    $sql = "select * from tblsinhvien where masv = $masv";
+    $ket_qua = mysqli_query($connect, $sql);
+    $each = mysqli_fetch_array($ket_qua);
+    ?>
 
-    <?php if (isset($_GET['loi'])) { ?>
-        <span class="error">
+    <?php
+    if (isset($_GET['loi'])) {
+    ?>
+        <span style="color:red">
             <?php echo $_GET['loi']; ?>
         </span>
-    <?php } ?>
+    <?php
+    }
+    ?>
 
-    <?php if (isset($_GET['success'])) { ?>
-        <span class="success">
-            <?php echo $_GET['success']; ?>
-        </span>
-    <?php } ?>
-
-    <form action="process_insert_SinhVien.php" method="post" enctype="multipart/form-data">
-        Họ và tên <input type="text" name="ho_ten" required><br>
-        Ngày sinh <input type="date" name="ngay_sinh" required><br>
+    <form action="process_update_SinhVien.php" method="post">
+        <input type="hidden" name="masv" value="<?php echo $each['masv']; ?>">
+        Họ và tên <input type="text" name="ho_ten" value="<?php echo $each['ho_ten']; ?>" required><br>
+        Ngày sinh <input type="date" name="ngay_sinh" value="<?php echo date('Y-m-d', strtotime($each['ngay_sinh'])); ?>" required><br>
         Giới tính:
-        <input type="radio" id="nam" name="gioi_tinh" value="Nam" required>
+        <input type="radio" id="nam" name="gioi_tinh" value="Nam" <?php if ($each['gioi_tinh'] == 'Nam') echo 'checked'; ?> required>
         <label for="nam" class="radio-label">Nam</label>
-        <input type="radio" id="nu" name="gioi_tinh" value="Nữ" required>
+        <input type="radio" id="nu" name="gioi_tinh" value="Nữ" <?php if ($each['gioi_tinh'] == 'Nữ') echo 'checked'; ?> required>
         <label for="nu" class="radio-label">Nữ</label><br>
-        Quê quán <input type="text" name="que_quan" required><br>
-        Ảnh <input type="text" name="anh" required><br>
-        <button type="submit">Thêm</button>
+        Quê quán <input type="text" name="que_quan" value="<?php echo $each['que_quan']; ?>" required><br>
+        Ảnh <input type="text" name="anh" value="<?php echo $each['anh']; ?>" required><br>
+        <button>Cập nhật</button>
     </form>
-
-    <a href="index.php" class="">Xem danh sách tất cả sinh viên</a>
+    <a href="../index.php">Xem tất cả danh sách sinh viên</a>
 </body>
 
 </html>

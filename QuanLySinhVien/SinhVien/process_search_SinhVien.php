@@ -205,7 +205,7 @@
         <?php endforeach ?>
 
     </table>
-    <a href="index.php" class="">Xem danh sách tất cả sinh viên</a>
+    <a href="../index.php" class="">Xem danh sách tất cả sinh viên</a>
 </body>
 
 </html>

@@ -26,4 +26,4 @@ where masv = '$masv'";
 mysqli_query($connect, $sql);
 
 
-header('location:index.php?update=Cập nhật thông tin sinh viên thành công');
+header('location: ../index.php?update=Cập nhật thông tin sinh viên thành công');

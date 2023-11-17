@@ -7,4 +7,4 @@ $sql = "delete from tbllop where malop = '$id'";
 
 mysqli_query($connect, $sql);
 
-header('Location: form_quan_ly_lop.php?delete=Xoá thành công');
+header('Location: ./form_quan_ly_lop.php?delete=Xoá thành công');

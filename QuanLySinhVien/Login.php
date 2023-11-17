@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
 
-    $sql = "SELECT * FROM tbuser WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM tbluser WHERE username = '$username' AND password = '$password'";
     $result = mysqli_query($connect, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {

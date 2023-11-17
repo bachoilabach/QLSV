@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm Người Dùng</title>
+    <title>Cập nhật sinh viên</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +13,7 @@
             display: grid;
             justify-items: center;
             align-items: center;
-            /* height: 500px; */
+            height: 500px;
             background-color: #f4f4f4;
         }
 
@@ -22,7 +23,6 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
-            font-size: 20px;
         }
 
         h1 {
@@ -74,28 +74,38 @@
         }
     </style>
 </head>
-<body>
-    <h1>Thêm sinh người dùng vào danh sách</h1>
 
-    <?php if(isset($_GET['loi'])) { ?>
-        <span class="error">
+<body>
+    <h1>Cập nhật người dùng</h1>
+    <?php
+    $id = $_GET['id'];
+    $connect = mysqli_connect('localhost', 'root', '', 'QLSV');
+    mysqli_set_charset($connect, 'utf8');
+    $sql = "select * from tbluser where id = $id";
+    $ket_qua = mysqli_query($connect, $sql);
+    $each = mysqli_fetch_array($ket_qua);
+    ?>
+
+    <?php
+    if (isset($_GET['loi'])) {
+    ?>
+        <span style="color:red">
             <?php echo $_GET['loi']; ?>
         </span>
-    <?php } ?>
+    <?php
+    }
+    ?>
 
-    <?php if(isset($_GET['success'])) { ?>
-        <span class="success">
-            <?php echo $_GET['success']; ?>
-        </span>
-    <?php } ?>
 
-    <form action="process_insert_nguoi_dung.php" method="post">
-        Họ và tên <input type="text" name="fullname" required><br>
-        Tài khoản <input type="text" name="username" required><br>
-        Mật khẩu <input type="text" name="password" required><br>
-        <button type="submit">Thêm</button>
+    <form action="./process_update_nguoi_dung.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $each['id']; ?>">
+        <br>
+        Họ và tên <input type="text" name="fullname" value="<?php echo $each['fullname']; ?>" required><br>
+        Tài khoản <input type="text" name="username" value="<?php echo $each['username']; ?>" required><br>
+        Mật khẩu <input type="text" name="password" value="<?php echo $each['password']; ?>" required><br>
+        <button>Cập nhật</button>
     </form>
-
-    <a href="form_quan_ly_nguoi_dung.php" class="">Xem danh sách tất cả người dùng</a>
+    <a href="./form_quan_ly_nguoi_dung.php">Xem tất cả danh sách người dùng</a>
 </body>
+
 </html>

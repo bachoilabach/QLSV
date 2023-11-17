@@ -19,4 +19,4 @@ where makhoa = '$makhoa'";
 mysqli_query($connect, $sql);
 
 
-header('location:form_quan_ly_khoa.php?update=Cập nhật thông tin khoa thành công');
+header('location:./form_quan_ly_khoa.php?update=Cập nhật thông tin khoa thành công');

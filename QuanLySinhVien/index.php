@@ -154,9 +154,9 @@
         <img src="https://cdn3.vectorstock.com/i/1000x1000/06/62/management-business-logo-template-concept-vector-31080662.jpgs" />
         <ul>
             <li><a href="index.php">Quản lý sinh viên</a></li>
-            <li><a href="form_quan_ly_khoa.php">Quản lý khoa</a></li>
-            <li><a href="form_quan_ly_lop.php">Quản lý lớp</a></li>
-            <li><a href="form_quan_ly_nguoi_dung.php">Quản lý người dùng</a></li>
+            <li><a href="Khoa/form_quan_ly_khoa.php">Quản lý khoa</a></li>
+            <li><a href="Lop/form_quan_ly_lop.php">Quản lý lớp</a></li>
+            <li><a href="nguoiDung/form_quan_ly_nguoi_dung.php">Quản lý người dùng</a></li>
             <li><a href="Login.php">Đăng xuất</a></li>
         </ul>
     </header>
@@ -171,7 +171,7 @@
     ?>
     <div class="header">
         <div class="add">
-            <a href="form_insert_SinhVien.php" class="addTitle">
+            <a href="SinhVien/form_insert_SinhVien.php" class="addTitle">
                 Thêm sinh viên
             </a>
         </div>
@@ -245,10 +245,10 @@
                 </td>
                 <td class="functional">
                     <div style="background-color: #6dd5ed;">
-                        <a class="Change" href="form_update_SinhVien.php?masv=<?php echo $each['masv'] ?>">Sửa</a>
+                        <a class="Change" href="SinhVien/form_update_SinhVien.php?masv=<?php echo $each['masv'] ?>">Sửa</a>
                     </div>
                     <div style="background-color: #f12711;">
-                        <a class="Del" href="process_delete_SinhVien.php?masv=<?php echo $each['masv'] ?>">Xoá</a>
+                        <a class="Del" href="SinhVien/process_delete_SinhVien.php?masv=<?php echo $each['masv'] ?>">Xoá</a>
                     </div>
                 </td>
             </tr>
